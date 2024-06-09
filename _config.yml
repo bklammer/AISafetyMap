@@ -21,7 +21,7 @@
 title: AI Safety Concept Map
 email: 
 description: >- # this means to ignore newlines until "baseurl:"
-  This page shows a high level diagram of the AI Safety field. It is meant to be a starting point for people who are new to the field and want to get an overview of the different concepts and how they relate to each other.
+  This page shows a high level diagram of the AI existential safety field. It is meant to be a starting point for people who are new to the field and want to get an overview of the different concepts and how they relate to each other.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
