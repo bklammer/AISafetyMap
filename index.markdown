@@ -34,28 +34,40 @@ window.onload = function() {
 
       data.forEach(row => {
         // Generate section titles
-        const h3 = document.createElement('h3');
+        const h2 = document.createElement('h2');
 
         if (row.tags !== current_section) {
           current_section = row.tags;
-          h3.textContent = current_section;
+          h2.textContent = current_section;
         }
 
+        contentDiv.appendChild(h2);
+
+        // Generate topic titles
+        const h3 = document.createElement('h3');
+        h3.textContent = row['LongLabel'];
         contentDiv.appendChild(h3);
 
-        // 
-        
-        // Specify the fields you want to display
-        const fields = ['LongLabel', 'Description', 'Link'];
+        // Generate description and link preamble
         const p = document.createElement('p');
-
-        fields.forEach(field => {
-          if (row[field]) {
-            p.textContent += row[field] + ' ';
-          }
-        });
-
+        p.textContent = row['Description'];
         contentDiv.appendChild(p);
+        
+        // Generate links
+        const ul = document.createElement('ul');
+        const li1 = document.createElement('li');
+        const li2 = document.createElement('li');
+        const a1 = document.createElement('a');
+        const a2 = document.createElement('a');
+        a1.href = row['Link'];
+        a1.textContent = row['LinkTitle'];
+        li1.appendChild(a1);
+        ul.appendChild(li1);
+        a2.href = row['AISFLink'];
+        a2.textContent = row['AISFLinkTitle'];
+        li2.appendChild(a2);
+        ul.appendChild(li2);
+        contentDiv.appendChild(ul);
       });
     });
 };
