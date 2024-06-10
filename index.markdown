@@ -5,9 +5,9 @@
 layout: home
 ---
 
-Welcome to the AI Safety Concept Map! This is an attempt to visualize the conceptual landscape of AI existential safety (as of June 2024). The current diagram is largely based on the content of the [AI Safety Fundamentals Alignment Course](https://aisafetyfundamentals.com/alignment/) run by BlueDot Impact.
+Welcome to the AI Safety Concept Map! This is an attempt to visualize the conceptual landscape of AI existential safety (as of June 2024) in order to help orient newcomers to the field. The current diagram is largely based on the content of the [AI Safety Fundamentals Alignment Course](https://aisafetyfundamentals.com/alignment/) run by BlueDot Impact.
 
-![AI Safety Map](/images/AISafetyMap.png)
+![AI Safety Map](/images/2024-06-10_AISafetyMap.png)
 
 The diagram organizes different approaches to AI safety as items which are grouped into relevant themes. The size of the circle an item is in is roughly correlated to how mature the item/approach is. Arrows are intended to indicate how the different themes broadly interact with one another. A breakdown of the items and themes visualized above alongside links to learn more is given below.
 
