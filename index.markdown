@@ -9,7 +9,9 @@ Welcome to the AI Safety Concept Map! This is an attempt to visualize the concep
 
 ![AI Safety Map](/images/AISafetyMap.png)
 
-Here's a breakdown of the concepts and themes visualized above alongside links to learn more. If you have any feedback on anything, checkout the "About" page or comment on [AI Safety Concept Map](https://docs.google.com/spreadsheets/d/1CFWHZQJPvF98DtyQtjiiK8upqksTPv-lAyKVYNSXCew/edit?usp=sharing).
+The diagram organizes different approaches to AI safety as items which are grouped into relevant themes. The size of the circle an item is in is roughly correlated to how mature the item/approach is. Arrows are intended to indicate how the different themes broadly interact with one another. A breakdown of the items and themes visualized above alongside links to learn more is given below.
+
+This diagram is mostly a sense-making effort from an interested amateur with <100hrs of exposure to the field of AI safety but I hope you still find it helpful! If you have any feedback on anything, checkout the "About" page or comment on [AI Safety Concept Map Sheet](https://docs.google.com/spreadsheets/d/1CFWHZQJPvF98DtyQtjiiK8upqksTPv-lAyKVYNSXCew/edit?usp=sharing) (which is also the source of the info below).
 
 <div id="sheet-content"></div>
 
@@ -33,41 +35,45 @@ window.onload = function() {
       let current_section = "";
 
       data.forEach(row => {
-        // Generate section titles
-        const h2 = document.createElement('h2');
+        // Display all non-hidden rows
+        if (row['hide'] != 'Yes') {
 
-        if (row.tags !== current_section) {
-          current_section = row.tags;
-          h2.textContent = current_section;
+            // Generate section titles
+            const h2 = document.createElement('h2');
+
+            if (row.tags !== current_section) {
+            current_section = row.tags;
+            h2.textContent = current_section;
+            }
+
+            contentDiv.appendChild(h2);
+
+            // Generate topic titles
+            const h3 = document.createElement('h3');
+            h3.textContent = row['LongLabel'];
+            contentDiv.appendChild(h3);
+
+            // Generate description and link preamble
+            const p = document.createElement('p');
+            p.textContent = row['Description'];
+            contentDiv.appendChild(p);
+            
+            // Generate links
+            const ul = document.createElement('ul');
+            const li1 = document.createElement('li');
+            const li2 = document.createElement('li');
+            const a1 = document.createElement('a');
+            const a2 = document.createElement('a');
+            a1.href = row['Link'];
+            a1.textContent = row['LinkTitle'];
+            li1.appendChild(a1);
+            ul.appendChild(li1);
+            a2.href = row['AISFLink'];
+            a2.textContent = row['AISFLinkTitle'];
+            li2.appendChild(a2);
+            ul.appendChild(li2);
+            contentDiv.appendChild(ul);
         }
-
-        contentDiv.appendChild(h2);
-
-        // Generate topic titles
-        const h3 = document.createElement('h3');
-        h3.textContent = row['LongLabel'];
-        contentDiv.appendChild(h3);
-
-        // Generate description and link preamble
-        const p = document.createElement('p');
-        p.textContent = row['Description'];
-        contentDiv.appendChild(p);
-        
-        // Generate links
-        const ul = document.createElement('ul');
-        const li1 = document.createElement('li');
-        const li2 = document.createElement('li');
-        const a1 = document.createElement('a');
-        const a2 = document.createElement('a');
-        a1.href = row['Link'];
-        a1.textContent = row['LinkTitle'];
-        li1.appendChild(a1);
-        ul.appendChild(li1);
-        a2.href = row['AISFLink'];
-        a2.textContent = row['AISFLinkTitle'];
-        li2.appendChild(a2);
-        ul.appendChild(li2);
-        contentDiv.appendChild(ul);
       });
     });
 };
